@@ -1,0 +1,26 @@
+table {
+  border-top: 2px solid ;
+  width: 800px;
+  height: 200px;
+}
+
+td {
+  text-align: center;
+}
+
+button{
+    background-color: blue;
+    border-radius: 24px;
+    color: white;
+    display: inline-block;
+    margin-left: 12px;
+}
+
+img{
+    width: 20px;
+    height: 20px;
+}
+
+tr:nth-of-type(2n){
+  background-color: rgba(221, 221, 221, 0.726);
+}
