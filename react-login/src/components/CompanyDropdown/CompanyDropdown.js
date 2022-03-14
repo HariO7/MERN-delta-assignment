@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateSelectedCompanies } from '../../store/Actions/Company';
-
+import './CompanyDropdown.scss';
 const id = 'companyDropdown';
 
 const CompanyDropDown = () => {
@@ -57,7 +57,7 @@ const CompanyDropDown = () => {
     <div title="Company Dropdown" id={id}>
       <div className={`dropdown ${visible ? 'open' : ''}`}>
         <button className="dropdown-toggle" type="button" onClick={() => setVisible((prevValue) => !prevValue)}>
-          {selectedCompanies.length === 0 ? 'Select Company' : allSelected ? 'All Selected' : `${selectedCompanies.length} - Selected`}
+          {selectedCompanies.length === 0 ? 'Select Company' : allSelected ? 'All Selected' : `(${selectedCompanies.length})company`}
         </button>
         <ul className="dropdown-menu">
           <li>

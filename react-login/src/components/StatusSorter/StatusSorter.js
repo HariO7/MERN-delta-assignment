@@ -24,10 +24,7 @@ const StatusSorter = () => {
 
   return (
     <div>
-      <button onClick={()=> handleSort(!sortAscend)}>Status</button>
-      {/* <Button variant="outline-secondary" onClick={() => handleSort(!sortAscend)}>
-        Status {!sortAscend ? <UpOutlined /> : <DownOutlined />}
-      </Button> */}
+      <button className='sort' onClick={()=> handleSort(!sortAscend)}>Status</button>
     </div>
   );
 };

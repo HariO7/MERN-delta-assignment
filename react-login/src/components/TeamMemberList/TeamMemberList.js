@@ -1,23 +1,14 @@
 import React from "react";
 import trash from './trash.png'
 import { useSelector, useDispatch } from "react-redux";
-// import { deleteTeamMember } from "../store/Actions/TeamMember";
+import { deleteTeamMember } from "../../store/Actions/TeamMember";
 const TeamMemberList = () => {
   const teamMembers = useSelector((state) => state.teamMemberReducer.teamMembers);
   const selectedCompanies = useSelector((state) => state.companyReducer.selectedCompanies);
-  // const { confirm } = Modal;
   const dispatch = useDispatch();
-  // const deleteTeamMemberConfirm = (teamMember) => {
-  //   confirm({
-  //     onOk: () => {
-  //       dispatch(deleteTeamMember(teamMembers.filter(({ id }) => id !== teamMember.id)));
-  //     },
-  //     title: 'Are you sure want delete this team member',
-  //     okText: 'Yes',
-  //     okType: 'danger',
-  //     cancelText: 'No',
-  //   });
-  // };
+  const deleteTeamMemberConfirm = (teamMember) => {
+        dispatch(deleteTeamMember(teamMembers.filter(({ id }) => id !== teamMember.id)));
+  };
   return (
     <div>
       {teamMembers.length > 0 && (
@@ -45,7 +36,7 @@ const TeamMemberList = () => {
                 <td>{teamMember.lastUpdated ?? '-'}</td>
                 <td>{teamMember.notes ?? '-'}</td>
                 <td>
-                 <img src={trash} />
+                 <img src={trash} onClick={()=> deleteTeamMemberConfirm(teamMember)}/>
                 </td>
               </tr>
             ))}
